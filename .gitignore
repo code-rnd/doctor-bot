@@ -4,6 +4,7 @@
 /.pnp
 .pnp.js
 .npmrc
+.env
 
 # production
 /build
