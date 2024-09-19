@@ -1,12 +1,18 @@
-require('dotenv').config()
+/** Импорт инстанса бота */
+const {bot} = require('./bot/bot');
 
-const { Bot, Keyboard } = require('grammy');
-const bot = new Bot(process.env.ACCESS_TOKEN);
+const { run } = require("@grammyjs/runner")
+const { apiThrottler } =  require("@grammyjs/transformer-throttler");
 
-bot.start();
+const throttler = apiThrottler();
+bot.api.config.use(throttler);
 
-bot.command('start', async (ctx) => {
-    await ctx.reply(
-        'Привет! Я - Frontend Bot 🤖 \nЯ помогу тебе с чем нибудь...',
-    );
-});
+/** Обработка ошибок */
+require('./errors/errors');
+/** Мидлвари */
+require('./middleware/middleware');
+/** Слушатели и обработчики */
+require('./listeners/listeners');
+
+/** Старт бота */
+run(bot)
