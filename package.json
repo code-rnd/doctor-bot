@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@grammyjs/menu": "^1.2.2",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "grammy": "^1.30.0",

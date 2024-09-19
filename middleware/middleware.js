@@ -7,4 +7,3 @@ const {menuUsefulTips} = require("../controls/useful-tips");
 bot.use(menuRoot);
 bot.use(menuMedication);
 bot.use(menuUsefulTips);
-
